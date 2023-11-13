@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -11,8 +12,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $name = 'Elisberto';
-        return view('site.home', compact('name'));
+      
     }
 
     /**
