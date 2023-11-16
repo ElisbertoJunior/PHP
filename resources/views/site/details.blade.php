@@ -4,13 +4,14 @@
 
 @section('content')
 
-<div class="row container">
+<div class="row container"> <br>
     <div class="col s12 m6">
         <img src="{{ $product->image }}" class="responsive-img">
     </div>
 
     <div class="col s12 m6">
-        <h1>{{ $product->name }}</h1>
+        <h4>{{ $product->name }}</h4>
+        <h4>R$ {{ number_format($product->price, 2, ',', '.') }}</h4> 
         <p>{{ $product->descrption }}</p>
         <p>Postado por: {{ $product->user->firstName }}</p>
         <p>Categoria: {{ $product->category->name }}</p>
