@@ -15,6 +15,14 @@ Route::get('/categories/{id}', [SiteController::class, 'categories'])->name('sit
 
 Route::get('/cart', [CartController::class, 'cartList'])->name('site.cart');
 
+Route::post('/cart', [CartController::class, 'addItem'])->name('site.addCart');
+
+Route::post('/delete', [CartController::class, 'deleteCart'])->name('site.deleteCart');
+
+Route::post('/update', [CartController::class, 'updateCart'])->name('site.updateCart');
+
+Route::get('/clear', [CartController::class, 'clearCart'])->name('site.clearCart');
+
 
 
 // Route::get('/', [ProductController::class, 'index'])->name('product.index');

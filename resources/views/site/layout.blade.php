@@ -23,7 +23,12 @@
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="/">Home</a></li>
             <li><a href="#" class="dropdown-trigger" data-target="dropdown1">Categorias <i class="material-icons right">expand_more</i></a></li>
-            <li><a href="">Carrinho</a></li>
+            <li><a href="{{ route('site.cart') }}">Carrinho
+                <span class="new badge white" style="color: rgb(105, 105, 226); border-radius: 70px; font-weight: 700;" data-badge-caption="">
+                    {{ \Cart::getContent()->count() }}
+                </span>
+                 </a>
+            </li>
           </ul>
         </div>
     </nav>
