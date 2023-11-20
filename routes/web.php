@@ -1,27 +1,29 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource('products', ProductController::class);
 
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
-
 Route::get('/product/{slug}', [SiteController::class, 'details'])->name('site.details');
-
 Route::get('/categories/{id}', [SiteController::class, 'categories'])->name('site.categories');
 
 Route::get('/cart', [CartController::class, 'cartList'])->name('site.cart');
-
 Route::post('/cart', [CartController::class, 'addItem'])->name('site.addCart');
-
 Route::post('/delete', [CartController::class, 'deleteCart'])->name('site.deleteCart');
-
 Route::post('/update', [CartController::class, 'updateCart'])->name('site.updateCart');
-
 Route::get('/clear', [CartController::class, 'clearCart'])->name('site.clearCart');
+
+Route::view('/login', 'login.form')->name('login.form');
+Route::post('/auth', [LoginController::class, 'auth'])->name('login.auth');
+Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
+
+Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 
 
